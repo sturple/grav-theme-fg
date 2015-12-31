@@ -1,0 +1,43 @@
+{% extends 'partials/base.html.twig' %}
+{% macro pageLinkName(text) %}{{ text|lower|replace({' ':'_'}) }}{% endmacro %}
+
+
+
+
+{% block content %}
+	<div class="modular">
+		
+    {% for module in page.collection() %}
+		{% set slideshow = false %}{% set featureImage = false %}{%set image = false %}
+		
+		{% set backgroundAttributes %}
+			{% set backgroundColor = '#f8f8f8' %}
+			{% if module.header.background.image %}
+			   {% set image = module.media[module.header.background.image] %}
+
+			{% elseif module.header.background.color %}
+				{% set backgroundColor = module.header.background.color %}    
+			{% endif%}
+			{% if image %}
+				data-background-lg="{{ image.cropResize(1920,1920).url() }}"
+				data-background-md="{{ image.cropResize(1200,1200).url() }}"
+				data-background-sm="{{ image.cropResize(768,768).url() }}"
+			{% endif %}
+			style="background-color: {{backgroundColor}}"
+			{{ parent()}}
+		{% endset %}		
+
+		
+		
+
+		
+		<div class="modular-row {{ module.header.class.row}}"  {{module.header.attributes}} {{backgroundAttributes}}>
+			<div class="modular-anchor" id="{{ module.slug() }}" data-scroll></div>
+			{#{{module.adjacentSibling(1).menu}} - {{module.path}} - {{page.collection().adjacentSibling(module.path,1).menu}}#}
+			{{ module.content }}
+			{% if module.isLast()%}{% else%}<div style="" class="modular-next-nav {{module.folder}}" ><a data-scroll href="#{{ module.prevSibling().slug() }}"></a></div>{% endif%}			
+		</div>
+    {% endfor %}
+	</div>
+	<div class="modular-start-nav" ><a data-scroll href="#">top</a></div> 
+{% endblock %}

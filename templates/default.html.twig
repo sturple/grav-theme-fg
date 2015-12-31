@@ -1,0 +1,22 @@
+{% extends 'partials/base.html.twig' %}
+
+{% block content %}
+	{% if page.header.slideshow == 'youtube' %}
+		{{turpyoutube}}
+	{% endif%}
+	
+     <div class="container">
+	{% if page.header.sidebar == 'none' %}
+		{{ page.content }}
+		{% else%}
+		<div class="row">
+			<div class="col-md-8">
+				{{page.content}}
+			</div>
+			<div class="col-md-4">
+				<h2>Sidebar</h2>
+			</div>
+		</div>	
+	{% endif %}	
+    </div>
+{% endblock %}

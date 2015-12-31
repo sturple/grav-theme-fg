@@ -1,0 +1,59 @@
+
+/******* @Media Variables ********/
+@screen-xs-max: 480px;
+@screen-sm-max: 768px;
+@screen-md-max: 990px;
+@screen-lg-max: 1199px;
+
+
+
+/*** BASE @body-color: {{bodyColor|default('#333')}};   ***/
+@body-color: twig(bodyColor);
+@body-font-size-px: 14px;
+@body-font-family: twig(fontFamilyBody);
+
+/*** HEADINGS ***/
+@heading-font-family: twig(fontFamilyHeading);
+@heading-font-weight: 600;	
+@heading-color: twig(headingColor);
+
+/*** GENERAL ***/
+@p-margin-bottom: 12px;
+
+@blockquote-font-style : normal;
+@blockquote-font-weight: 300;
+@blockquote-font-family: twig(fontFamilyBlockquote);  
+@blockquote-font-size: 2.3;
+@blockquote-line-height: 1.3em;
+	
+
+
+@signature-font-family: twig(fontFamilySignature);
+
+
+
+/*** LINKS & BUTTONS ***/
+@link-color: twig(linkColor);
+@link-colorHover: twig(linkColorHover);
+
+
+
+
+
+
+
+/*** MODULES ***/
+
+@module-padding-top: twig(cssModulePaddingTop);
+@module-padding-bottom: twig(cssModulePaddingBottom);
+
+/*Down Arrow Nav */
+@moduleNav-content: '\f107';
+@moduleNav-font-size: 34px;
+@moduleNav-color: @link-color;
+
+/*Up Arrow Nav */
+@moduleNavStart-content: '\f0aa';
+@moduleNavStart-font-size: 34px;
+@moduleNavStart-color: @link-color;
+

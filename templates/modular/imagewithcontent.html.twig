@@ -1,0 +1,23 @@
+{% if page.header.feature.image %}
+    {% set fi = page.media[page.header.feature.image] %}
+{% elseif  page.media.images %}
+    {% set fi = page.media.images|first %}
+{% elseif page.header.feature.backgroundcolor %}
+    {% set featureBackgroundColor = page.header.feature.backgroundcolor %}    
+{% endif%}
+{% set flagNoBackground = true %}
+
+<div class="{{ page.header.class.container}}" style="background-color: {{featureBackgroundColor | defatult('#f8f8f8')}}">
+    <div class="row">
+        <div class="{{page.header.class.image | default('col-md-4')}}">
+            <img class="img-responsive" style="{{page.header.feature.style | default('width: 100%') }} "
+                 data-image-lg="{{fi.cropResize(1920,1920).url()}}"
+                 data-image-md="{{fi.cropResize(1200,1200).url()}}"
+                 data-image-sm="{{fi.cropResize(768,768).url()}}"
+                 alt="{{page.title}}"/>
+        </div>
+        <div class="{{page.header.class.content | default('col-md-8')}}">
+            <div class="column-wrapper">{{ content }}</div>                
+        </div>
+    </div> 
+</div>

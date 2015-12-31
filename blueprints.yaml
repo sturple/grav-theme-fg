@@ -1,0 +1,30 @@
+name: Fg
+version: 0.0.1
+description: "Fifth Gear Marketing template is built using the popular **Bootstrap** Framework"
+icon: bold
+author:
+  name: FGMS
+  email: shawn.turple@fifthgeardev.com
+  url:  https://github.com/sturple
+homepage: https://github.com/sturple/grav-theme-fg
+demo: 
+keywords: bootstrap, theme, framework
+bugs: https://github.com/sturple/grav-theme-fg/issues
+license: MIT
+
+dependencies:
+  - bootstrapper
+
+form:
+  validation: strict
+  fields:
+    dropdown.enabled:
+        type: toggle
+        label: Dropdown in navbar
+        highlight: 1
+        default: 1
+        options:
+          1: Enabled
+          0: Disabled
+        validate:
+          type: bool
